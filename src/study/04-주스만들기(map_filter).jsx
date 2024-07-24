@@ -1,5 +1,3 @@
-import './App.css'
-
 const fruits = [
   { name: "딸기", color: "빨강", 크기: 2 },
   { name: "바나나", color: "노랑", 크기: 5 },
@@ -13,7 +11,7 @@ const fruits = [
   { name: "수박", color: "초록", 크기: 8 }
 ]
 
-function App() {
+function Juice() {
   return (
     <>
       <div>
@@ -33,7 +31,7 @@ function App() {
   )
 }
 
-export default App
+export default Juice
 
 // 과일 이름만 담겨있는 배열 만들기(map)
 console.log(fruits.map((fruit) => {return fruit.name}));

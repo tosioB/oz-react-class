@@ -1,6 +1,6 @@
 import './App.css'
 
-function App() {
+function Hamburger() {
   return (
     <>
       <빵 />
@@ -59,4 +59,4 @@ function 치즈() {
   )
 }
 
-export default App
+export default Hamburger
