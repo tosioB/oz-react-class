@@ -103,21 +103,21 @@ function Todo({ todo, setTodoList }) {
         }
         {
           editCheck &&
-            <button
-              type="button"
-              className="btn edit-check"
-              onClick={() => {
-                setEditBtn(true)
-                setEditCheck(false)
-                setTodoList((e) => {
-                  return e.map((el) => {
-                    return el.id === todo.id ? { ...e, title: editInputValue } : el
-                  })
+          <button
+            type="button"
+            className="btn edit-check"
+            onClick={() => {
+              setEditBtn(true)
+              setEditCheck(false)
+              setTodoList((e) => {
+                return e.map((el) => {
+                  return el.id === todo.id ? { ...e, title: editInputValue } : el
                 })
-              }}
-            >
-              확인
-            </button>
+              })
+            }}
+          >
+            확인
+          </button>
         }
         <button
           type="button"
