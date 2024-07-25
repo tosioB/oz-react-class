@@ -1,4 +1,4 @@
-import './App.css'
+import './assets/study_css/03-햄버거만들기(component).css'
 
 function Hamburger() {
   return (

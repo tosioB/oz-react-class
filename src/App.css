@@ -1,15 +1,54 @@
-.빵 {
-  background-color: orange;
+* {
+  padding: 0px;
+  margin: 0;
+  box-sizing: border-box;
 }
-.패티 {
-  background-color: brown;
+html, body {
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
 }
-.양상추 {
-  background-color: green;
+ul, ol {
+  list-style: none;
 }
-.치즈 {
-  background-color: yellow;
+a {
+  text-decoration: none;
 }
-.토마토 {
-  background-color: red;
+
+/* button */
+.btn {
+  width: auto;
+  height: 32px;
+  padding: 0 12px;
+  white-space: nowrap;
+  background-color: #00897B;
+  border-radius: 4px;
+  color: #FFF;
+}
+.btn.error, .btn.del {
+  background-color: #E53935;
+}
+.btn:active,
+.btn:focus {
+  outline: none;
+}
+
+/* input */
+.inp-box {
+  width: 100%;
+}
+.inp-box input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 32px;
+  padding: 0 12px;
+  background-color: #FFF;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+}
+.inp-box input:focus {
+  outline: 1px solid #00897B;
 }
