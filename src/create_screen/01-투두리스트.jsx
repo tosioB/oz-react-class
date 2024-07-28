@@ -1,6 +1,6 @@
 import { useState } from "react"
 import './App.css';
-import './assets/study_css/14-투두리스트.css';
+import './assets/create_screen_css/01-투두리스트.css';
 
 function App() {
   const [todoList, setTodoList] = useState([
@@ -123,8 +123,6 @@ function Todo({ todo, setTodoList }) {
           type="button"
           className="btn del"
           onClick={() => {
-            console.log(todoList)
-            console.log(todo)
             setTodoList((e) => {
               return e.filter((el) => {
                 return el.id !== todo.id
