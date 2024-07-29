@@ -53,9 +53,12 @@ a {
   outline: 1px solid #00897B;
 }
 
-
-
-
+/* flex */
+.flex-center {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
 
 
