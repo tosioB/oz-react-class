@@ -1,0 +1,7 @@
+{
+  "data": [
+    {"id": 1, "content": "서버 연습은"},
+    {"id": 2, "content": "json-server를 쓰면"},
+    {"id": 3, "content": "편리하답니다!"}
+  ]
+}

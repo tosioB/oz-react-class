@@ -23,6 +23,7 @@ a {
   padding: 0 12px;
   white-space: nowrap;
   background-color: #00897B;
+  border: none;
   border-radius: 4px;
   color: #FFF;
 }
@@ -36,7 +37,9 @@ a {
 
 /* input */
 .inp-box {
+  display: block;
   width: 100%;
+  max-width: 280px;
 }
 .inp-box input {
   display: flex;

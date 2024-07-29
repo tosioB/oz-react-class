@@ -1,0 +1,7 @@
+{
+  "data": [
+    {"id": 1, "content": "custom hook은"},
+    {"id": 2, "content": "코드 중복을 줄이고"},
+    {"id": 3, "content": "재사용성을 높여줘요!"}
+  ]
+}
