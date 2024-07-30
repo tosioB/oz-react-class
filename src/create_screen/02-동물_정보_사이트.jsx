@@ -11,25 +11,27 @@ function App() {
   const navigate = useNavigate();
   return (
     <>
-      <header>
-        <div className='flex-center'>
-          <span className='inp-box'>
-            <input value={inputValue} onChange={(event) => {setInputValue(event.target.value)}} />
-          </span>
-          <button
-            type='button'
-            className='btn'
-            onClick={() => {navigate(`/search?animal=${inputValue}`)}} // 검색페이지를 위한 navigate
-          >
-            검색
-          </button>
-        </div>
-      </header>
-      <Routes>
-        <Route path="/" element={ <Main /> } />
-        <Route path="/detail/:id" element={ <Detail /> } /> {/* 상세페이지를 위한 /:id */}
-        <Route path="/search" element={ <Search /> } />
-      </Routes>
+      <div>
+        <header>
+          <div className='flex-center'>
+            <span className='inp-box'>
+              <input value={inputValue} onChange={(event) => {setInputValue(event.target.value)}} />
+            </span>
+            <button
+              type='button'
+              className='btn'
+              onClick={() => {navigate(`/search?animal=${inputValue}`)}} // 검색페이지를 위한 navigate
+            >
+              검색
+            </button>
+          </div>
+        </header>
+        <Routes>
+          <Route path="/" element={ <Main /> } />
+          <Route path="/detail/:id" element={ <Detail /> } /> {/* 상세페이지를 위한 /:id */}
+          <Route path="/search" element={ <Search /> } />
+        </Routes>
+      </div>
     </>
   )
 }

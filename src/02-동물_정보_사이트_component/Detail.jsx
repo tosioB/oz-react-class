@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 function Detail() {
   const params = useParams();
   const animalData = data.find((e) => {return e.id === Number(params.id);});
-  // console.log(animalData);
 
   return (
     <>

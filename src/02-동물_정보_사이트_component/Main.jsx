@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Main() {
   return (
     <>
-      <div>메인페이지</div>
+      {/* <div>메인페이지</div> */}
       <ul className="animal-box">
         {
           data.map((e) => {

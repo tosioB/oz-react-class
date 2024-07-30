@@ -21,8 +21,8 @@ function App() {
 function Main() {
   const [searchParams, setSearchParams] = useSearchParams();
   
-  // 주소창에 http://localhost:5175/main?name=daesik&school=ozcoding 입력
-  console.log(searchParams.get('name')); // daesik
+  // 주소창에 http://localhost:5175/main?name=ozozoz&school=ozcoding 입력
+  console.log(searchParams.get('name')); // ozozoz
   console.log(searchParams.get('school')); // ozcoding
   return <div>메인 페이지</div>
 }
