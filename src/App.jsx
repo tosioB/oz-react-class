@@ -23,6 +23,7 @@ function App() {
               onClick={() => {navigate(`/search?animal=${inputValue}`)}} // 검색페이지를 위한 navigate
             >
               검색
+              {/* 깃 연결 확인 */}
             </button>
           </div>
         </header>
