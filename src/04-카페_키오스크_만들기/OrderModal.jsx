@@ -5,11 +5,15 @@ function OrderModal({ modalMenu, setModalOn, cart, setCart }) {
   const [options, setOptions] = useState({ 온도: 0, 진하기: 0, 사이즈: 0 });
   const [quantity, setQuantity] = useState(1);
   const itemOptions = data.options;
-  console.log(options);
+
+  // console.log(modalMenu)
+  // console.log(itemOptions)
+
   return (
     <>
-      {modalMenu ? (
-        <section className="modal-backdrop" onClick={() => setModalOn(false)}>
+      {
+        modalMenu ? 
+        (<section className="modal-backdrop" onClick={() => setModalOn(false)}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
             <div className="modal-item">
               <img src={modalMenu.img} />
@@ -19,15 +23,23 @@ function OrderModal({ modalMenu, setModalOn, cart, setCart }) {
               </div>
             </div>
             <ul className="options">
-              {Object.keys(itemOptions).map((el) => (
-                <Option
-                  key={el}
-                  options={options}
-                  setOptions={setOptions}
-                  name={el}
-                  itemOptions={itemOptions[el]}
-                />
-              ))}
+              {
+                Object.keys(itemOptions).map((el) => (
+                  // console.log(el) // 온도, 진하기, 사이즈
+                  /** console.log(itemOptions[el])
+                   * ['HOT', 'ICE']
+                   * ['연하게', '보통', '진하게']
+                   * ['Small', 'Medium', 'Large']
+                  */
+                  <Option
+                    key={el}
+                    options={options}
+                    setOptions={setOptions}
+                    name={el}
+                    itemOptions={itemOptions[el]}
+                  />
+                ))
+              }
             </ul>
             <div className="submit">
               <div>
@@ -50,8 +62,8 @@ function OrderModal({ modalMenu, setModalOn, cart, setCart }) {
               </button>
             </div>
           </div>
-        </section>
-      ) : null}
+        </section>) : null
+      }
     </>
   );
 }
@@ -61,17 +73,19 @@ function Option({ name, options, setOptions, itemOptions }) {
     <li className="option">
       {name}
       <ul>
-        {itemOptions.map((option, idx) => (
-          <li key={option}>
-            <input
-              type="radio"
-              name={name}
-              checked={options[name] === idx}
-              onChange={() => setOptions({ ...options, [name]: idx })}
-            />
-            {option}
-          </li>
-        ))}
+        {
+          itemOptions.map((option, idx) => (
+            <li key={option}>
+              <input
+                type="radio"
+                name={name}
+                checked={options[name] === idx}
+                onChange={() => setOptions({ ...options, [name]: idx })}
+              />
+              {option}
+            </li>
+          ))
+        }
       </ul>
     </li>
   );
