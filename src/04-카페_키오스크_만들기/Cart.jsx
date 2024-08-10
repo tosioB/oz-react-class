@@ -1,6 +1,10 @@
 import data from "../assets/create_screen_data/04-카페_키오스크_만들기"
+import { useCart } from "../create_context/04-카페_키오스크_만들기/cartContext";
+import { useMenu } from "../create_context/04-카페_키오스크_만들기/menuContext"
 
-function Cart ({menu, cart, setCart}) {
+function Cart () {
+  const {menu} = useMenu();
+  const {cart} = useCart();
   if (!menu) return (<div style={{textAlign:"center", margin: '80px'}}> 메뉴 정보가 없어요!</div>)
   const allMenus = [...menu.커피, ...menu.논커피]
 
@@ -36,8 +40,6 @@ function Cart ({menu, cart, setCart}) {
               item={allMenus.find(menu => menu.id === el.id)}
               options={el.options} 
               quantity={el.quantity}
-              cart={cart}
-              setCart={setCart}
             />
           )
           :
@@ -48,7 +50,8 @@ function Cart ({menu, cart, setCart}) {
   )
 }
 
-function CartItem ({item, options, quantity, cart, setCart}) {
+function CartItem ({item, options, quantity}) {
+  const {removeToCart} = useCart();
     return (
       <li className='cart-item'>
         <div className="cart-item-info">
@@ -71,7 +74,7 @@ function CartItem ({item, options, quantity, cart, setCart}) {
           <div>개수 : {quantity}</div>
         </div>
         <button className="cart-item-delete" onClick={() => {
-          setCart(cart.filter(el => el.id !== item.id))
+          removeToCart(item.id)
         }}>삭제</button>
       </li>
     )

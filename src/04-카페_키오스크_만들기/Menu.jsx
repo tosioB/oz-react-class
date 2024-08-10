@@ -1,8 +1,10 @@
 import { useState } from "react"
 import Item from "./Item"
 import OrderModal from "./OrderModal"
+import { useMenu } from "../create_context/04-카페_키오스크_만들기/menuContext"
 
-function Menu ({ menu, cart, setCart }) {
+function Menu () {
+  const { menu } = useMenu();
     if (!menu) return (<div style={{textAlign:"center", margin: '80px'}}> 메뉴 정보가 없어요!</div>)
     
     const [ modalOn, setModalOn ] = useState(false)
@@ -46,8 +48,6 @@ function Menu ({ menu, cart, setCart }) {
           {
             modalOn ? 
             <OrderModal
-              cart={cart}
-              setCart={setCart}
               modalMenu={modalMenu} 
               setModalOn={setModalOn} 
             /> :

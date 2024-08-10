@@ -1,10 +1,14 @@
 import { useState } from "react";
 import data from "../assets/create_screen_data/04-카페_키오스크_만들기";
+import { useCart } from "../create_context/04-카페_키오스크_만들기/cartContext";
 
-function OrderModal({ modalMenu, setModalOn, cart, setCart }) {
+function OrderModal({ modalMenu, setModalOn }) {
+  const {cart, addToCart} = useCart();
   const [options, setOptions] = useState({ 온도: 0, 진하기: 0, 사이즈: 0 });
   const [quantity, setQuantity] = useState(1);
   const itemOptions = data.options;
+
+  console.log(cart)
 
   // console.log(modalMenu)
   // console.log(itemOptions)
@@ -54,7 +58,7 @@ function OrderModal({ modalMenu, setModalOn, cart, setCart }) {
               </div>
               <button
                 onClick={() => {
-                  setCart([...cart, {quantity, options, id: modalMenu.id}])
+                  addToCart(quantity, options, modalMenu.id);
                   setModalOn(false);
                 }}
               >
