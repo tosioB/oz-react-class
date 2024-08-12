@@ -1,6 +1,6 @@
 import { useState } from "react";
 import data from "../assets/create_screen_data/04-카페_키오스크_만들기";
-import { useCart } from "../create_context/04-카페_키오스크_만들기/cartContext";
+import { useCart } from "../create_screen_context/04-카페_키오스크_만들기/cartContext";
 
 function OrderModal({ modalMenu, setModalOn }) {
   const {cart, addToCart} = useCart();

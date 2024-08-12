@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import data from '../assets/create_screen_data/05-카페_키오스크_만들기_Redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { addToCart } from '../redux/05-카페_키오스크_만들기_Redux/redux';
 
-function OrderModal ({modalMenu, setModalOn, cart, setCart}) {
+function OrderModal ({modalMenu, setModalOn}) {
+  const dispatch = useDispatch();
     const [ options, setOptions ] = useState({'온도': 0, '진하기': 0, '사이즈': 0})
     const [ quantity, setQuantity ] = useState(1)
     const itemOptions = data.options
@@ -33,8 +36,8 @@ function OrderModal ({modalMenu, setModalOn, cart, setCart}) {
                                 <input id="count" type="number" value={quantity} min='1' onChange={(event) => setQuantity(Number(event.target.value))} />
                             </div>
                             <button onClick={() => {
-                                setCart([...cart, { options, quantity, id: modalMenu.id}])
-                                setModalOn(false)
+                              dispatch(addToCart(options, quantity, modalMenu.id))
+                              setModalOn(false)
                             }}>장바구니 넣기</button>
                         </div>
                     </div>

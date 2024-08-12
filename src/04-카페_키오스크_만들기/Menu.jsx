@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Item from "./Item"
 import OrderModal from "./OrderModal"
-import { useMenu } from "../create_context/04-카페_키오스크_만들기/menuContext"
+import { useMenu } from "../create_screen_context/04-카페_키오스크_만들기/menuContext"
 
 function Menu () {
   const { menu } = useMenu();

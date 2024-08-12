@@ -1,6 +1,6 @@
 import data from "../assets/create_screen_data/04-카페_키오스크_만들기"
-import { useCart } from "../create_context/04-카페_키오스크_만들기/cartContext";
-import { useMenu } from "../create_context/04-카페_키오스크_만들기/menuContext"
+import { useCart } from "../create_screen_context/04-카페_키오스크_만들기/cartContext";
+import { useMenu } from "../create_screen_context/04-카페_키오스크_만들기/menuContext"
 
 function Cart () {
   const {menu} = useMenu();

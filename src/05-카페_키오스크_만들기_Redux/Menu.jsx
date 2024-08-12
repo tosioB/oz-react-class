@@ -1,8 +1,10 @@
 import { useState } from "react"
 import Item from "./Item"
 import OrderModal from "./OrderModal"
+import { useSelector } from "react-redux"
 
-function Menu ({menu, cart, setCart}) {
+function Menu () {
+  const menu = useSelector(state => state.menuReducer);
     if (!menu) return (<div style={{textAlign:"center", margin: '80px'}}> 메뉴 정보가 없어요!</div>)
 
     const [ modalOn, setModalOn ] = useState(false)
@@ -29,8 +31,6 @@ function Menu ({menu, cart, setCart}) {
             {modalOn? <OrderModal 
                 modalMenu={modalMenu} 
                 setModalOn={setModalOn}
-                cart={cart}
-                setCart={setCart}
             /> : null}
         </>
     )
