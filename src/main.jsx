@@ -12,6 +12,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   // </React.StrictMode>,
 
+    
+  
+
 
   // 33번 Context API 강의 화면을 위한 태그
   // import { CounterProvider } from './context/33-counterContext.jsx'

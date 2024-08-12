@@ -31,14 +31,16 @@ function App() {
   return (
     <>
       <div>Counter : {counter}</div>
-      <button onClick={() => {
-        console.log(counterSlice);
-        dispatch(slowIncrementThunk())
-      }}>+</button>
-      <button onClick={() => {
-        console.log(counterSlice);
-        dispatch(counterSlice.actions.decrement())
-      }}>-</button>
+      <div>
+        <button type="button" className="btn" onClick={() => {
+          console.log(counterSlice);
+          dispatch(slowIncrementThunk())
+        }}>+</button>
+        <button type="button" className="btn" onClick={() => {
+          console.log(counterSlice);
+          dispatch(counterSlice.actions.decrement())
+        }}>-</button>
+      </div>
     </>
   )
 }
