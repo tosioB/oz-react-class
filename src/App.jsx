@@ -1,47 +1,38 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import './App.css';
-import './assets/create_screen_css/08-동물_정보_사이트_Debounce_Throttle.css';
-import Main from './08-동물_정보_사이트_component_Debounce_Throttle/Main';
-import Detail from './08-동물_정보_사이트_component_Debounce_Throttle/Detail';
-import Search from './08-동물_정보_사이트_component_Debounce_Throttle/Search';
-import { useState } from 'react';
-
-/** Debounce & Throttle 참고
- * 이 페이지에서 가져오고 있는
- * Search 컴포넌트에서 
- * Debounce & Throttle에 대한 코드를
- * 볼 수 있다.
- */
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { fetchMultiplepokemonById } from "./redux/09-포켓몬_도감_만들기/thunk";
+import { Route, Routes, Link } from "react-router-dom";
+import Main from "./09-포켓몬_도감_만들기/Main";
+import Detail from "./09-포켓몬_도감_만들기/Detail";
+import Search from "./09-포켓몬_도감_만들기/Search";
+import Favorite from "./09-포켓몬_도감_만들기/Favorite";
+import './assets/create_screen_css/09-포켓몬_도감_만들기.scss'
 
 function App() {
-  const [inputValue, setInputValue] = useState('');
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const pokemonData = useSelector(state => state.pokemon);
+
+  useEffect(() => {
+    dispatch(fetchMultiplepokemonById(151))
+  }, [])
+
   return (
     <>
-      <div>
-        <header>
-          <div className='flex-center'>
-            <span className='inp-box'>
-              <input
-                value={inputValue}
-                onChange={(event) => {
-                  setInputValue(event.target.value);
-                  navigate(`/search?animal=${inputValue}`);
-                }} />
-            </span>
-            <button
-              type='button'
-              className='btn'
-              onClick={() => {navigate(`/search?animal=${inputValue}`)}} // 검색페이지를 위한 navigate
-            >
-              검색
-            </button>
-          </div>
-        </header>
+      <div className="pokemon">
+        <h1 className="main-title">포켓몬 도감</h1>
+
+        <nav className="link">
+          <Link to={"/"}>메인</Link>
+          <Link to={"/Detail/1"}>상세정보</Link>
+          <Link to={"/Search"}>검색</Link>
+          <Link to={"/Favorite"}>찜목록</Link>
+        </nav>
+
         <Routes>
-          <Route path="/" element={ <Main /> } />
-          <Route path="/detail/:id" element={ <Detail /> } /> {/* 상세페이지를 위한 /:id */}
-          <Route path="/search" element={ <Search /> } />
+          <Route path="/" element={<Main />} />
+          <Route path="/Detail/:pokemonId" element={<Detail />} />
+          <Route path="/Search" element={<Search />} />
+          <Route path="/Favorite" element={<Favorite />} />
         </Routes>
       </div>
     </>
@@ -49,17 +40,14 @@ function App() {
 }
 export default App
 
-/** Debounce & Throttle
- * 연속적으로 발생하는 함수나 이벤트를 묶어서 처리하는 방식
- * 최적화를 통한 성능 향상 목적
-*/
-
-/** Debounce
- * 함수나 이벤트가 연속적으로 발생하는동안 쭉 지켜보고 있다가 마지막에 발생하는 이벤트만 처리한다
- * 마지막에 한 번에 묶어서 처리해도 상관 없을 때 사용(ex.검색 자동 완성 기능)
-*/
-
-/** Throttle
- * 연속적으로 발생하는동안 일정 텀을 가지고서 처리를 한다.
- * 중간 중간 끊기지 않는 인터렉션이 필요할 때 사용(ex.마우스 이동, 스크롤 이벤트)
-*/
+/** 포켓몬 도감 만들기
+ * 1. 포켓몬 정도는 pokeapi.co에서 받아와서 표시
+ * 2. 다음 중 최소 2개의 페이지를 만드세요.
+ *   2-1)Main - 전체 포켓몬 리스트를 표시합니다.
+ *   2-2)Detail - 포켓몬 상세 정보를 표시합니다.
+ *   2-3)Favorite - 찜한 포켓몬 리스트를 표시합니다.
+ *   2-4)Search - 포켓몬 검색 결과 리스트를 표시합니다.
+ * 3.  Context API , Redux, RTK 등 전역 상태 관리 도구를 사용하세요.
+ * 4. Styled-Components, Tailwind CSS 등 스타일링 도구를 사용하세요.
+ * 5. 최적화를 진행해 보세요.
+ */
